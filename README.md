@@ -21,7 +21,7 @@ CMMV (Contract-Model-Model-View) is a minimalistic and modular framework for bui
 If you prefer to set up the project manually, you can still install the necessary modules individually:
 
 ```bash
-$ pnpm add @cmmv/fastify 
+$ pnpm add @cmmv/fastify @fastify/compress @fastify/cors @fastify/helmet @fastify/secure-session @fastify/static @fastify/view
 ```
 
 ## Quick Start
