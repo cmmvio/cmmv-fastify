@@ -1,3 +1,18 @@
+## 0.6.2 (2024-12-04)
+
+
+### Bug Fixes
+
+* readme ([4ca8d80](https://github.com/andrehrferreira/cmmv-fastify/commit/4ca8d8097d57053044762542823ee97bc47b7f15))
+* readme ([9e31ed1](https://github.com/andrehrferreira/cmmv-fastify/commit/9e31ed120fa7849ff4e53c7d50050a70ecdb2e0a))
+
+
+### Features
+
+* first commit ([ba7a0c3](https://github.com/andrehrferreira/cmmv-fastify/commit/ba7a0c35bfd81689bc630c2baefdf0c3897bb816))
+
+
+
 ## [0.6.13](https://github.com/andrehrferreira/cmmv-express/compare/v0.6.8...v0.6.13) (2024-12-04)
 
 
