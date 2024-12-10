@@ -30,8 +30,12 @@ The `@cmmv/fastify` module provides an alternative HTTP adapter based on [Fastif
 
 ```typescript
 import { Application } from "@cmmv/core";
-import { FastifyAdapter, FastifyModule } from "@cmmv/fastify";
 import { ViewModule } from "@cmmv/view";
+
+import { 
+  FastifyAdapter, 
+  FastifyModule 
+} from "@cmmv/fastify";
 
 Application.create({
     httpAdapter: FastifyAdapter, // Add the FastifyAdapter here
