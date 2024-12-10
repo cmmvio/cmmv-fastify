@@ -1,3 +1,7 @@
+## [0.6.4](https://github.com/andrehrferreira/cmmv-fastify/compare/v0.6.3...v0.6.4) (2024-12-10)
+
+
+
 ## [0.6.3](https://github.com/andrehrferreira/cmmv-fastify/compare/v0.6.2...v0.6.3) (2024-12-10)
 
 
