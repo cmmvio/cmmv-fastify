@@ -1,3 +1,12 @@
+## [0.6.3](https://github.com/andrehrferreira/cmmv-fastify/compare/v0.6.2...v0.6.3) (2024-12-10)
+
+
+### Bug Fixes
+
+* package, readme ([58ba6f4](https://github.com/andrehrferreira/cmmv-fastify/commit/58ba6f430ea61c9398985053a54f8b3a57438849))
+
+
+
 ## 0.6.2 (2024-12-04)
 
 
