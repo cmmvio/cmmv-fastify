@@ -31,10 +31,10 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/andrehrferreira/cmmv-fastify.git"
+        "url": "git+https://github.com/cmmvio/cmmv-fastify.git"
     },
     "bugs": {
-        "url": "https://github.com/andrehrferreira/cmmv-fastify/issues"
+        "url": "https://github.com/cmmvio/cmmv-fastify/issues"
     },
     "homepage": "https://cmmv.io",
     "engines": {
