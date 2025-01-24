@@ -18,7 +18,7 @@ import {
     Telemetry,
     Config,
 } from '@cmmv/core';
-import { CMMVRenderer } from '@cmmv/view';
+
 import { ControllerRegistry } from '@cmmv/http';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -28,29 +28,33 @@ export interface FastifyRequestCustom extends FastifyRequest {
 }
 
 export class FastifyAdapter extends AbstractHttpAdapter<FastifyInstance> {
-    private logger: Logger = new Logger('FastifyAdapter');
     protected readonly openConnections = new Set<Duplex>();
-    protected render: CMMVRenderer = new CMMVRenderer();
 
     constructor(instance?: FastifyInstance) {
         super(instance || require('fastify')());
     }
 
     public async init(application: Application, settings?: IHTTPSettings) {
-        const publicDir = path.join(process.cwd(), 'public');
+        let publicDirs = Config.get<string[]>('server.publicDirs', [
+            'public/views',
+        ]);
+
         this.application = application;
 
         this.instance.register(fastifyCompress);
+
         this.instance.register(fastifyStatic, {
-            root: publicDir,
+            root: publicDirs,
             prefix: '/assets',
         });
+
         this.instance.register(fastifyView, {
             engine: { ejs: require('@cmmv/view') },
-            root: publicDir,
+            root: publicDirs,
             defaultContext: {},
             propertyName: 'view',
         });
+
         this.instance.register(require('@fastify/formbody'));
         this.instance.register(fastifyCors);
         this.instance.register(fastifyHelmet, { contentSecurityPolicy: false });
@@ -73,7 +77,15 @@ export class FastifyAdapter extends AbstractHttpAdapter<FastifyInstance> {
         );
     }
 
-    private setMiddleware() {
+    private async setMiddleware() {
+        const renderEngine = Config.get<string>('server.render', 'cmmv');
+        let render = null;
+
+        if (renderEngine === '@cmmv/view' || renderEngine === 'cmmv') {
+            const { CMMVRenderer } = await import('@cmmv/view');
+            render = new CMMVRenderer();
+        }
+
         this.instance.addHook(
             'onRequest',
             async (request: FastifyRequestCustom, reply: FastifyReply) => {
@@ -146,9 +158,9 @@ export class FastifyAdapter extends AbstractHttpAdapter<FastifyInstance> {
                 ];
 
                 for (const filePath of possiblePaths) {
-                    if (fs.existsSync(filePath)) {
+                    if (fs.existsSync(filePath) && render) {
                         return reply.type('text/html').send(
-                            await this.render.renderFile(
+                            await render.renderFile(
                                 filePath,
                                 {
                                     nonce: request.nonce,
