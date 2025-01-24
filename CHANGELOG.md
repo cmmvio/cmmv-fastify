@@ -1,3 +1,12 @@
+## [0.6.5](https://github.com/cmmvio/cmmv-fastify/compare/v0.6.4...v0.6.5) (2025-01-24)
+
+
+### Bug Fixes
+
+* repository ([a2f0533](https://github.com/cmmvio/cmmv-fastify/commit/a2f05332791562bd1e205ac25753f5d0beb6c6e7))
+
+
+
 ## [0.6.4](https://github.com/cmmvio/cmmv-fastify/compare/v0.6.3...v0.6.4) (2024-12-10)
 
 
